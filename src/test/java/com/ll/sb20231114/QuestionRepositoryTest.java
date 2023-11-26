@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import java.time.LocalDateTime;
 
 @SpringBootTest
 public class QuestionRepositoryTest {
@@ -16,7 +16,20 @@ public class QuestionRepositoryTest {
     }
 
     @Test
-    public void isQuestionRepositoryNull() {
-        assertThat(questionRepository).isNotNull();
+    void testJpa() {
+        Question q1 = Question.builder()
+                .subject("sbb가 무엇인가요?")
+                .content("sbb에 대해서 알고 싶습니다.")
+                .createDate(LocalDateTime.now())
+                .build();
+        this.questionRepository.save(q1);
+
+        Question q2 = Question.builder()
+                .subject("스프링부트 모델 질문입니다.")
+                .content("id는 자동으로 생성되나요?")
+                .createDate(LocalDateTime.now())
+                .build();
+        this.questionRepository.save(q2);
+
     }
 }
