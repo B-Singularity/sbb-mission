@@ -58,5 +58,6 @@ public class QuestionRepositoryTest {
 
         Question q = copiedList.get(0);
         assertEquals("sbb가 무엇인가요?", q.getSubject());
+        copiedList = null;
     }
 }
