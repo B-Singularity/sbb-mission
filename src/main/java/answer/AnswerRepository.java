@@ -1,5 +1,6 @@
-package com.ll.sb20231114;
+package answer;
 
+import answer.Answer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

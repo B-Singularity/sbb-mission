@@ -1,5 +1,6 @@
-package com.ll.sb20231114;
+package answer;
 
+import question.Question;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
