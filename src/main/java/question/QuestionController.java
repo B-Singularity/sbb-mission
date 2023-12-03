@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -20,6 +21,8 @@ public class QuestionController {
     }
     @GetMapping(value = "/question/detail/{id}")
     public String detail(Model model, @PathVariable("id") Integer id) {
+        Optional<Question> question = this.questionService.getQuestionById(id);
+        model.addAttribute("question", question);
         return "question_detail";
     }
 }
